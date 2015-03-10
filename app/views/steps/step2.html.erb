@@ -1,0 +1,33 @@
+<h1><%= t('.title') %></h1>
+
+<p><%= t('.explanation_html') %></p>
+
+<%= form_tag do %>
+  <%= password_field_tag("passw0rd", "", id: 'p4ssw0rd') %>
+
+  <%= submit_tag t('.hack'), disabled: true, id: 'submit' %>
+<% end %>
+
+<% content_for(:end) do %>
+<%= (" " * 600 + "\n") * 20 %>
+<!-- WTF!! Wat is dit lang... -->
+<%= (" " * 600 + "\n") * 20 %>
+<!-- EINDE! -->
+<%= (" " * 600 + "\n") * 20 %>
+<!-- This is not the scrolling you are looking for -->
+<%= (" " * 600 + "\n") * 20 %>
+<script>
+  (function(q, _, m, u, s, i, c, $) {
+    u = arguments.length * u
+    s = '#'
+    c = 'submit'
+    $ = ['ThisIsThePassword', 'DitIsHetWachtwoord', 'OfIsHetDit', 'HetBlijftEenvoudig', 'HetWordAlWatMoeilijker', 'SecurityByObscurity', 'OKHetKomtGoed', 'JeBentEenEchteHacker', 'GoedGedaan', 'Volgende', '<%= @password %>', 'AlleGekheidOpEenStokje', 'WeGaanGemakkelijkVanStart', 'Moop3ahXahghuc7aemai7piucheXah2m', 'DitIsGeheim']
+    var password = s + 'p4ssw0r' + (("" + i)[u++])
+    m != undefined ? i = function (i) { return $[i] } : function () { "RealPassword" }
+
+    q.i = function () { m(s+c).attr('disabled', false) }
+    q._ = function () { if (m(this).val() == i(++u)) q.i(); else window.location = "/start" }
+    m(_).on('change', password, q._)
+  })(window, document, $, 2)
+</script>
+<% end %>

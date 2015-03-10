@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hackature</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+  <%= yield :head %>
+</head>
+<body>
+
+<div id="content">
+  <%= yield %>
+
+  <% unless !@step || @step.first? || @step.last? %>
+    <footer id="no-shame">
+      <%= t('.give_up_html', link: new_candidature_path) %>
+    </footer>
+  <% end %>
+</div>
+
+</body>
+</html>
+
+<%= yield :end %>

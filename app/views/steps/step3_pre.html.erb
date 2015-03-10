@@ -1,0 +1,40 @@
+<h1><%= t('.title') %></h1>
+
+<p><%= t('.explanation_html') %></p>
+
+<%= form_tag do %>
+  <%= password_field_tag("passw0rd", "", id: 'p4ssw0rd') %>
+
+  <%= submit_tag t('.hack'), id: 'submit' %>
+<% end %>
+
+<br/>
+
+<%= form_tag encrypt_path, :id => 'encrypt', :remote => true do %>
+
+  <%= text_field_tag(:text, nil, id: 'text') %>
+
+  <%= submit_tag t('.encrypt'), id: 'submit' %>
+
+  <div class="result" style="display: none;">
+      <div class="limit_message"></div>
+      <div class="message"></div>
+      <div class="error"></div>
+  </div>
+<% end %>
+
+<script>
+  jQuery(function($) {
+    $('#encrypt').on('ajax:success', function(xhr, data, error) {
+      $('.limit_message, .message, .result').show();
+      $('.limit_message').html(data.count);
+      $('.message').html(data.value);
+      $('.error').hide();
+    }).on('ajax:error',function(xhr, data, error){
+      data = data.responseJSON;
+      $('.result').show();
+      $('.limit_message, .message').hide();
+      $('.error').show().html(data.message);
+    });
+  });
+</script>

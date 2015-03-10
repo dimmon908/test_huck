@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/hackature":{"guestpath":"/var/www/hackature","hostpath":"D:/projects/test/hackature","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"D:/projects/test/hackature","disabled":false},"v-csc-1":{"id":"v-csc-1","guestpath":"/tmp/vagrant-chef-3/chef-solo-1/cookbooks","hostpath":"D:/projects/test/hackature/cookbooks","disabled":false}}}
